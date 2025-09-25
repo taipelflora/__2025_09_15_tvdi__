@@ -5,7 +5,10 @@ url = 'https://data.ntpc.gov.tw/api/datasets/010e5b15-3823-4b20-b401-b1cf000550c
 try:
     response = requests.get(url)
     response.raise_for_status()
-    data = response.json()
+    try:
+        data = response.json()
+    except requests.exceptions.JSONDecodeError as jsonError:
+        print(f"發生轉換格式錯誤:jsonError")
 except requests.exceptions.HTTPError as err_http:
     print(f"發生 HTTP 錯誤: {err_http}")
 except requests.exceptions.ConnectionError as err_conn:
@@ -16,7 +19,9 @@ except requests.exceptions.RequestException as err:
     # 這是所有 requests 例外的父類別，可以用來捕捉其他未預期的錯誤
     print(f"發生未預期的請求錯誤: {err}")
 else:
-    print("沒有出錯")
+    print(f"沒有出錯:\n{data}")
+
+
 
 
 

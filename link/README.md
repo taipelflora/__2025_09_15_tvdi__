@@ -11,4 +11,10 @@ https://www.youtube.com/watch?v=sUjV56zaou8
 
 ## 2025_09_22_下午
 https://www.youtube.com/watch?v=efD6Zo5MvtA
+
+---
+
+## 2025_09_25_上午
+https://www.youtube.com/watch?v=E9Ri-Qk7Rc0
+
 ---

@@ -9,7 +9,7 @@ def download_youbike_data()->list:
         try:
             data = response.json()
         except requests.exceptions.JSONDecodeError as jsonError:
-            raise Exception(f"發生轉換格式錯誤:jsonError")
+            raise Exception(f"發生轉換格式錯誤:{jsonError}")
     except requests.exceptions.HTTPError as err_http:
         raise Exception(f"發生 HTTP 錯誤: {err_http}")
     except requests.exceptions.ConnectionError as err_conn:

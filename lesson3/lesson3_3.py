@@ -7,5 +7,11 @@ response = requests.get(url)
 
 if response.status_code == 200:
     print("下載成功")
+    print("下載的內容如下")
+    #print(response.text)
+    #print(type(response.json()))
+    for item in response.json():
+        print(item)
 else:
     print("下載失敗")
+

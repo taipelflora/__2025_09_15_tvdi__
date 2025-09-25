@@ -1,6 +1,6 @@
 import requests
 
-def download_youbike_data():
+def download_youbike_data()->list:
     url = 'https://data.ntpc.gov.tw/api/datasets/010e5b15-3823-4b20-b401-b1cf000550c5/json?page=0&size=1000'
 
     try:
@@ -20,10 +20,14 @@ def download_youbike_data():
         # 這是所有 requests 例外的父類別，可以用來捕捉其他未預期的錯誤
         print(f"發生未預期的請求錯誤: {err}")
     else:
-        print(f"沒有出錯:\n{data}")
+        return data
+
+def main():
+   data = download_youbike_data()
+   print(data)
 
 if __name__ == "__main__":
-    download_youbike_data()
+    main()
 
 
 

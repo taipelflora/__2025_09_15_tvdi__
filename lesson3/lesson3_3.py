@@ -9,22 +9,26 @@ def download_youbike_data()->list:
         try:
             data = response.json()
         except requests.exceptions.JSONDecodeError as jsonError:
-            print(f"發生轉換格式錯誤:jsonError")
+            raise Exception(f"發生轉換格式錯誤:jsonError")
     except requests.exceptions.HTTPError as err_http:
-        print(f"發生 HTTP 錯誤: {err_http}")
+        raise Exception(f"發生 HTTP 錯誤: {err_http}")
     except requests.exceptions.ConnectionError as err_conn:
-        print(f"發生連線錯誤 (例如 DNS 查詢失敗、連線被拒): {err_conn}")
+        raise Exception(f"發生連線錯誤 (例如 DNS 查詢失敗、連線被拒): {err_conn}")
     except requests.exceptions.Timeout as err_timeout:
-        print(f"請求超時: {err_timeout}")
+        raise Exception(f"請求超時: {err_timeout}")
     except requests.exceptions.RequestException as err:
         # 這是所有 requests 例外的父類別，可以用來捕捉其他未預期的錯誤
-        print(f"發生未預期的請求錯誤: {err}")
+        raise Exception(f"發生未預期的請求錯誤: {err}")
     else:
         return data
 
 def main():
-   data = download_youbike_data()
-   print(data)
+   try:
+    data = download_youbike_data()
+    print(data)
+   except Exception as e:
+       print("發生錯誤\n{e}")
+   
 
 if __name__ == "__main__":
     main()

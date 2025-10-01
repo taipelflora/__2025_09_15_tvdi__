@@ -21,3 +21,9 @@ https://www.youtube.com/watch?v=E9Ri-Qk7Rc0
 https://www.youtube.com/watch?v=aBFNAmD9FgE
 
 ---
+
+## 2025_10_01_早上
+
+https://www.youtube.com/watch?v=9M3GxELnulg
+
+---

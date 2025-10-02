@@ -139,3 +139,77 @@ footer {
 		flex-wrap: wrap;
 	}
 }
+
+/* 手機導覽：切換按鈕（預設隱藏，手機顯示） */
+.nav-toggle {
+	display: none; /* 桌機隱藏 */
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.25rem;
+	margin-left: 0.5rem;
+}
+
+/* 漢堡圖示基本樣式 */
+.nav-toggle .hamburger {
+	display: inline-block;
+	width: 1.4rem;
+	height: 1rem;
+	position: relative;
+}
+.nav-toggle .hamburger .bar {
+	display: block;
+	height: 2px;
+	width: 100%;
+	background-color: var(--brand-text, #0f1720);
+	margin: 4px 0;
+	border-radius: 2px;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* 針對小螢幕：顯示切換按鈕並隱藏 nav-list（除非開啟） */
+@media (max-width: 800px) {
+	.nav-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* 讓 container 在手機維持品牌與切換按鈕並排 */
+	.navbar .container {
+		justify-content: space-between;
+	}
+
+	/* 手機預設隱藏選單 */
+	.nav-list {
+		display: none;
+		width: 100%;
+	}
+
+	/* 開啟時為垂直排列並佔滿寬度 */
+	.nav-list.open {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0.5rem 1rem;
+		/* 若想要與導覽列同背景，取消下行註解 */
+		/* background-color: var(--navbar-bg); */
+	}
+
+	/* 手機版每個項目填滿寬度，讓按鈕較容易點擊 */
+	.nav-list .nav-item a {
+		display: block;
+		padding: 0.75rem 0.5rem;
+	}
+
+	/* 漢堡按鈕開啟時可做簡單動畫（切換成 X） */
+	.nav-toggle.open .hamburger .bar:nth-child(1) {
+		transform: translateY(6px) rotate(45deg);
+	}
+	.nav-toggle.open .hamburger .bar:nth-child(2) {
+		opacity: 0;
+	}
+	.nav-toggle.open .hamburger .bar:nth-child(3) {
+		transform: translateY(-6px) rotate(-45deg);
+	}
+}

@@ -146,41 +146,55 @@ footer {
 	}
 }
 
-/* 手機導覽：切換按鈕（預設隱藏，手機顯示） */
+/* nav-toggle 預設顯示（桌機/平板皆可見），但使用深色圖示以在淺色導覽列上可見 */
 .nav-toggle {
-	display: none; /* 桌機隱藏 */
+	/* 由原先 display:none 改為顯示，保持排版屬性 */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	background: transparent;
 	border: none;
 	cursor: pointer;
 	padding: 0.25rem;
 	margin-left: 0.5rem;
-	z-index: 60; /* 提高在上層 */
+	z-index: 60;
 }
 
-/* 漢堡圖示：預設為白色線條（menu 按鈕為白色） */
+/* 漢堡字型圖示：桌機預設使用深色（可在變數中調整） */
+.nav-toggle .hamburger-icon {
+	display: inline-block;
+	font-size: 1.4rem;
+	line-height: 1;
+	color: var(--brand-text, #0f1720); /* 桌機為深色，避免在淺底看不見 */
+	user-select: none;
+	padding: 0.1rem 0.3rem;
+	border-radius: 6px;
+}
+
+/* 手機專用：在小螢幕時強制為白色圖示（覆寫桌機深色） */
+@media (max-width: 800px) {
+	.nav-toggle .hamburger-icon {
+		color: #ffffff !important; /* 手機版白色 */
+		padding: 0.25rem 0.5rem;
+	}
+}
+
+/* 隱藏舊的 bar 結構（若先前版本仍存在） */
+.nav-toggle .hamburger,
 .nav-toggle .hamburger .bar {
-	display: block;
-	height: 2px;
-	width: 100%;
-	/* 強制白色以避免被其他規則覆蓋 */
-	background-color: #ffffff !important;
-	margin: 4px 0;
-	border-radius: 2px;
-	transition: transform 0.2s ease, opacity 0.2s ease;
+	display: none;
 }
 
-/* 開啟狀態也確保白色（在 transform 時不被其他規則覆寫） */
-.nav-toggle.open .hamburger .bar,
-.nav-toggle.open .hamburger .bar:nth-child(1),
-.nav-toggle.open .hamburger .bar:nth-child(2),
-.nav-toggle.open .hamburger .bar:nth-child(3) {
-	background-color: #ffffff !important;
+/* 使用字型圖示（Unicode）作為漢堡按鈕 */
+.nav-toggle .hamburger-icon {
+	display: inline-block;
+	font-size: 1.4rem;
+	line-height: 1;
+	color: #ffffff !important; /* 強制白色 */
+	user-select: none;
 }
 
-/* 為了可及性，如果需要在淺底下更清楚可見，可加上輕微陰影或背景（選用，不強制） */
-/* .nav-toggle { box-shadow: 0 0 0 2px rgba(0,0,0,0.06); } */
-
-/* 針對小螢幕：顯示切換按鈕並隱藏 nav-list（除非開啟） */
+/* 在手機顯示切換按鈕並確保顏色為白（以高優先度避免被其他規則覆蓋） */
 @media (max-width: 800px) {
 	.nav-toggle {
 		display: inline-flex;
@@ -188,12 +202,20 @@ footer {
 		justify-content: center;
 	}
 
-	/* 讓 container 在手機維持品牌與切換按鈕並排 */
-	.navbar .container {
-		justify-content: space-between;
+	.nav-toggle .hamburger-icon {
+		color: #ffffff !important;
+		/* 增加點擊區域 */
+		padding: 0.25rem 0.5rem;
+		border-radius: 6px;
 	}
 
-	/* 手機預設強制隱藏選單（更具體的 selector 以避免被其他規則覆蓋） */
+	/* 開啟狀態確保仍為白色（如果 JS 加上 .open） */
+	.nav-toggle.open .hamburger-icon {
+		color: #ffffff !important;
+	}
+}
+
+/* ...existing code... */
 	.navbar .nav-list {
 		display: none !important;
 		width: 100%;

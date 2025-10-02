@@ -1,17 +1,14 @@
 console.log("Hello! index.js")
 
 document.addEventListener('DOMContentLoaded', function () {
-	const toggle = document.querySelector('.nav-toggle');
-	const navList = document.getElementById('primary-navigation');
+    const toggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
 
-	if (!toggle || !navList) return;
+    if (!toggle || !navList) return;
 
-	toggle.addEventListener('click', function () {
-		const isOpen = navList.classList.toggle('open');
-		// 同步按鈕狀態（含 aria）
-		toggle.classList.toggle('open', isOpen);
-		toggle.setAttribute('aria-expanded', String(isOpen));
-	});
+    toggle.addEventListener('click', function () {
+        navList.classList.toggle('open');
+    });
 
 	// 在視窗尺寸改變到桌機時，自動關閉手機選單以避免遺留狀態
 	window.addEventListener('resize', function () {

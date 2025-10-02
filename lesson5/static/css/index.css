@@ -51,6 +51,12 @@ body {
 	padding: 0;
 }
 
+/* 確保桌面預設為水平顯示（維持現有桌機行為） */
+.navbar .nav-list {
+	display: flex;
+	/* ...existing declarations... */
+}
+
 .nav-item a {
     color: white;
     text-decoration: none;
@@ -143,29 +149,36 @@ footer {
 /* 手機導覽：切換按鈕（預設隱藏，手機顯示） */
 .nav-toggle {
 	display: none; /* 桌機隱藏 */
-	background: none;
+	background: transparent;
 	border: none;
 	cursor: pointer;
 	padding: 0.25rem;
 	margin-left: 0.5rem;
+	z-index: 60; /* 提高在上層 */
 }
 
-/* 漢堡圖示基本樣式 */
-.nav-toggle .hamburger {
-	display: inline-block;
-	width: 1.4rem;
-	height: 1rem;
-	position: relative;
-}
+/* 漢堡圖示：預設為白色線條（menu 按鈕為白色） */
 .nav-toggle .hamburger .bar {
 	display: block;
 	height: 2px;
 	width: 100%;
-	background-color: var(--brand-text, #0f1720);
+	/* 強制白色以避免被其他規則覆蓋 */
+	background-color: #ffffff !important;
 	margin: 4px 0;
 	border-radius: 2px;
 	transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+/* 開啟狀態也確保白色（在 transform 時不被其他規則覆寫） */
+.nav-toggle.open .hamburger .bar,
+.nav-toggle.open .hamburger .bar:nth-child(1),
+.nav-toggle.open .hamburger .bar:nth-child(2),
+.nav-toggle.open .hamburger .bar:nth-child(3) {
+	background-color: #ffffff !important;
+}
+
+/* 為了可及性，如果需要在淺底下更清楚可見，可加上輕微陰影或背景（選用，不強制） */
+/* .nav-toggle { box-shadow: 0 0 0 2px rgba(0,0,0,0.06); } */
 
 /* 針對小螢幕：顯示切換按鈕並隱藏 nav-list（除非開啟） */
 @media (max-width: 800px) {
@@ -180,24 +193,27 @@ footer {
 		justify-content: space-between;
 	}
 
-	/* 手機預設隱藏選單 */
-	.nav-list {
-		display: none;
+	/* 手機預設強制隱藏選單（更具體的 selector 以避免被其他規則覆蓋） */
+	.navbar .nav-list {
+		display: none !important;
 		width: 100%;
+		position: relative;
+		z-index: 50;
 	}
 
 	/* 開啟時為垂直排列並佔滿寬度 */
-	.nav-list.open {
-		display: flex;
+	.navbar .nav-list.open {
+		display: flex !important;
 		flex-direction: column;
 		gap: 0.25rem;
 		padding: 0.5rem 1rem;
-		/* 若想要與導覽列同背景，取消下行註解 */
+		/* 若想要與導覽列同背景，可取消下行註解 */
 		/* background-color: var(--navbar-bg); */
+		box-shadow: 0 6px 18px rgba(15,23,36,0.06);
 	}
 
 	/* 手機版每個項目填滿寬度，讓按鈕較容易點擊 */
-	.nav-list .nav-item a {
+	.navbar .nav-list .nav-item a {
 		display: block;
 		padding: 0.75rem 0.5rem;
 	}

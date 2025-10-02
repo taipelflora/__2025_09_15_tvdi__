@@ -16,7 +16,7 @@ body {
 /* 導覽列樣式 */
 .navbar {
     background-color: #0B346E;
-    padding: 1rem;
+    padding: 1.5rem 2.0rem;
 }
 
 .navbar .container {

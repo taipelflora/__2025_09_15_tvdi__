@@ -12,7 +12,8 @@ def machine():
 
 @app.route("/lesson6_1")
 def lesson6_1():
-    return  render_template("lesson6_1.html")
+    page_tile = "我的首頁Robert"
+    return  render_template("lesson6_1.html",title=page_tile)
 
 def main():
     """啟動應用（教學用：啟用 debug 模式）"""

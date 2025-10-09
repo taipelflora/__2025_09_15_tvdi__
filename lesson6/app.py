@@ -8,7 +8,11 @@ def index():
 
 @app.route("/machine")
 def machine():
-    return render_template("machine.html") 
+    return render_template("machine.html")
+
+@app.route("/lesson6_1")
+def lesson6_1():
+    return  render_template("lesson6_1.html")
 
 def main():
     """啟動應用（教學用：啟用 debug 模式）"""

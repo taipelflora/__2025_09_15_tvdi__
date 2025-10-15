@@ -24,6 +24,17 @@ def lesson6_1():
     ]
     return  render_template("lesson6_1.html",title=page_tile, user_list = users)
 
+# ***作業任務 1：新增路由***
+@app.route("/decision_tree")
+def decision_tree():
+    # ***作業任務 5：傳遞資料到模板***
+    tree_info={
+        "algorithm": "決策樹分類器",
+        "applications": ["垃圾郵件分類", "客戶流失預測", "疾病診斷"],
+        "pros": ["容易理解", "不需要特徵縮放", "可視化清晰"]
+    }
+    return  render_template("decision_tree.html",tree_info=tree_info,is_supervised=True)
+
 def main():
     """啟動應用（教學用：啟用 debug 模式）"""
     # 在開發環境下使用 debug=True，部署時請關閉

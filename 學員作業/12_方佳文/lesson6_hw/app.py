@@ -6,11 +6,6 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-<<<<<<< HEAD
-@app.route("/machine")
-def machine():
-    return render_template("machine.html") 
-=======
 @app.route("/regression")
 def regression():
     return render_template("regression.html")
@@ -39,7 +34,6 @@ def decision_tree():
         "pros": ["容易理解", "不需要特徵縮放", "可視化清晰"]
     }
     return  render_template("decision_tree.html",tree_info=tree_info,is_supervised=True)
->>>>>>> 3ec8829d9406606a570eb7bce9756ae249839fdb
 
 def main():
     """啟動應用（教學用：啟用 debug 模式）"""

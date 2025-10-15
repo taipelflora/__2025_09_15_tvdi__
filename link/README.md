@@ -41,4 +41,12 @@ https://www.youtube.com/watch?v=mr8eISEnimc
 ## 2025_10_09_早上
 https://www.youtube.com/watch?v=XDUjF3-JXGw
 
+## 2025_10_09_下午
+https://www.youtube.com/watch?v=hHSTtwSbLhE
+
+---
+
+## 2025_10_16_上午
+https://www.youtube.com/watch?v=BqEzsJtDi_0
+
 ---

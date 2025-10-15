@@ -1,0 +1,173 @@
+/* 變數定義 */
+:root {
+    --primary-color: #007bff; /* Bootstrap Primary Blue */
+    --secondary-color: #6c757d;
+    --success-color: #198754; /* Bootstrap Success Green */
+    --danger-color: #dc3545; /* Bootstrap Danger Red */
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --border-radius: .75rem;
+    --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.07);
+    --transition-speed: 0.3s ease;
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Hero Section */
+.hero-section-tree {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    padding: 3rem 1rem;
+    margin-bottom: 3rem;
+}
+
+/* 通用卡片樣式 */
+.info-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.info-card-body {
+    padding: 1.5rem;
+}
+
+.card-title-main {
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+
+/* 可收合區塊頭部 */
+.info-card .card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+}
+
+.btn-collapse {
+    background: none;
+    border: none;
+    color: var(--dark-gray);
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-collapse .fa-chevron-down {
+    transition: transform var(--transition-speed);
+}
+
+.btn-collapse[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* 列表樣式 */
+.list-group-item {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.list-group-item i {
+    font-size: 1.1rem;
+}
+
+/* 監督式學習徽章 */
+.badge-supervised, .badge-unsupervised {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.badge-supervised {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: var(--primary-color);
+}
+
+.badge-unsupervised {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: var(--secondary-color);
+}
+
+/* 表單樣式 */
+.features-form .form-control {
+    border-width: 2px;
+    padding: 1rem;
+}
+
+.features-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary-submit:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* 提示框樣式 */
+.alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: var(--success-color);
+    border: 1px solid rgba(25, 135, 84, 0.2);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .hero-section-tree {
+        padding: 2rem 1rem;
+    }
+
+    .info-card-body {
+        padding: 1rem;
+    }
+}

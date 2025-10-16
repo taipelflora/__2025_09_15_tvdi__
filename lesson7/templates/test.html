@@ -5,6 +5,16 @@
 </head>
 <body>
     <h1 id="title">這是標題</h1>
-    <button id="myButton">點我改變標題</button>    
+    <button id="myButton">點我改變標題</button>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            const titleElement = document.querySelector('#title')
+            const buttonElement = document.querySelector('#myButton')
+
+            buttonElement.addEventListener('click',function(){
+                titleElement.textContent = "標題被我改變了"
+            })
+        })
+    </script>   
 </body>
 </html>

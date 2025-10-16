@@ -110,6 +110,41 @@
     margin-bottom: 0.5rem;
 }
 
+/* Pros and Cons */
+
+.pros-cons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.pros, .cons{
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.pros{
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.cons{
+    background-color: #ffebee;
+    border-left: 4px solid #f44336;
+}
+
+.pros strong, .cons strong{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.pros ul, .cons ul{
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
 @media (max-width:768px){
     /* Hero Section */
     .hero-section h1 {
@@ -125,7 +160,12 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-}
+    }
+
+    .pros-cons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 
 
 }

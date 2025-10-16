@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}決策樹深入解析{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section-tree text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">{{ algorithm }}</h1>
+        <p class="lead">一種強大且直觀的監督式學習模型</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    
+    <!-- 決策樹介紹 -->
+    <div class="info-card animate-fade-in">
+        <div class="info-card-body">
+            <h2 class="card-title-main">什麼是決策樹？</h2>
+            <p class="card-text">
+                決策樹是一種監督式學習算法，它通過一系列問題將數據分成不同的類別。就像一個流程圖，從根節點開始，
+                根據特徵值的判斷條件，數據沿著樹的分支向下流動，最終到達葉節點得到預測結果。這種方法模仿人類的
+                決策過程，非常直觀且容易理解，特別適合處理分類和回歸問題。
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- 應用場景 -->
+            <div class="info-card animate-fade-in">
+                <div class="card-header" id="heading-applications">
+                    <h5 class="mb-0">
+                        <button class="btn-collapse" data-bs-toggle="collapse" data-bs-target="#collapse-applications" aria-expanded="true" aria-controls="collapse-applications">
+                            <i class="fas fa-bullseye me-2"></i> 應用場景
+                            <i class="fas fa-chevron-down float-end"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapse-applications" class="collapse show" aria-labelledby="heading-applications">
+                    <div class="info-card-body">
+                        <ul class="list-group list-group-flush">
+                            {% for app in applications %}
+                            <li class="list-group-item">
+                                <i class="fas fa-check-circle text-success me-2"></i>{{ app }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <!-- 分類器類型 -->
+            <div class="info-card animate-fade-in text-center">
+                <div class="info-card-body">
+                    {% if is_supervised %}
+                    <div class="badge-supervised">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        監督式學習
+                    </div>
+                    <p class="mt-3 text-muted">此模型需要使用已標記的訓練數據來進行學習。</p>
+                    {% else %}
+                    <div class="badge-unsupervised">
+                        <i class="fas fa-robot me-2"></i>
+                        非監督式學習
+                    </div>
+                    <p class="mt-3 text-muted">此模型可以從未標記的數據中自行發現模式。</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- 優點列表 -->
+        <div class="col-md-6">
+            <div class="info-card animate-fade-in">
+                <div class="card-header" id="heading-pros">
+                    <h5 class="mb-0">
+                        <button class="btn-collapse collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-pros" aria-expanded="false" aria-controls="collapse-pros">
+                            <i class="fas fa-star me-2"></i> 主要優點
+                            <i class="fas fa-chevron-down float-end"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapse-pros" class="collapse" aria-labelledby="heading-pros">
+                    <div class="info-card-body">
+                        <ul class="list-group list-group-flush">
+                            {% for pro in pros %}
+                            <li class="list-group-item">
+                                <i class="fas fa-plus-circle text-primary me-2"></i>{{ pro }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 缺點列表 -->
+        <div class="col-md-6">
+            <div class="info-card animate-fade-in">
+                <div class="card-header" id="heading-cons">
+                    <h5 class="mb-0">
+                        <button class="btn-collapse collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-cons" aria-expanded="false" aria-controls="collapse-cons">
+                            <i class="fas fa-minus-circle me-2"></i> 主要缺點
+                            <i class="fas fa-chevron-down float-end"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapse-cons" class="collapse" aria-labelledby="heading-cons">
+                    <div class="info-card-body">
+                        <ul class="list-group list-group-flush">
+                            {% for con in cons %}
+                            <li class="list-group-item">
+                                <i class="fas fa-exclamation-triangle text-danger me-2"></i>{{ con }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 特徵數量表單 -->
+    <div class="info-card animate-fade-in">
+        <div class="info-card-body">
+            <h3 class="card-title-main text-center">互動模擬</h3>
+            <p class="text-center text-muted mb-4">設定決策樹要使用的特徵數量，觀察模型的變化。</p>
+            <form method="POST" class="features-form needs-validation" id="featuresForm" novalidate>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="features" name="features" 
+                           min="1" required placeholder="例如：4" value="{{ features or '' }}">
+                    <label for="features">請輸入特徵數量</label>
+                    <div class="invalid-feedback">
+                        請輸入有效的正整數（至少為 1）。
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary-submit">
+                        <i class="fas fa-cogs me-2"></i>
+                        確認設定
+                    </button>
+                </div>
+            </form>
+            {% if features %}
+            <div class="alert alert-success mt-4 animate-fade-in" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>設定成功！</strong> 您已將特徵數量設定為：<strong>{{ features }}</strong>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/decision_tree.css') }}">
+<script src="{{ url_for('static', filename='js/decision_tree.js') }}"></script>
+{% endblock %}

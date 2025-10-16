@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+ {{ super() }}
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/decision_tree.css') }}?v=1">
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <h1 class="title">決策樹分類</h1>
+
+    <p class="description">
+        決策樹是一種常見的機器學習算法，既可以用於分類任務，也可以用於迴歸任務。
+        它透過學習數據的特徵，建立一個樹狀模型來進行決策。
+        決策樹的優點是模型結果直觀、易於理解和解釋，且不需要對數據進行複雜的預處理，例如特徵縮放。
+    </p>
+
+    <div class="card">
+        <div class="card-header">模型資訊</div>
+        <div class="card-body">
+            <p><strong>演算法：</strong> {{ tree_info.algorithm }}</p>
+
+            <p><strong>應用：</strong></p>
+            <ul>
+                {% for app in tree_info.applications %}
+                <li>{{ app }}</li>
+                {% endfor %}
+            </ul>
+
+            <p><strong>優點：</strong></p>
+            <ul>
+                {% for pro in tree_info.pros %}
+                <li>{{ pro }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

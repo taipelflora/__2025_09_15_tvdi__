@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
 
+
+
 {% block content %}
 <main class="container">
     <div class="hero-section">
@@ -13,4 +15,10 @@
         <p class="subtitle">透過互動式視覺化，深入理解機器學習演算法的運作原理</p>
     </div>
 </main>
+{% endblock %}
+
+
+
+{% block code %}
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}

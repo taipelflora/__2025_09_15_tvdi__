@@ -26,3 +26,16 @@
     font-size: 1rem;
     opacity: 0.85;
 }
+
+@media (max-width:768px){
+    /* Hero Section */
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .lead{
+        font-size: 1.1rem;
+    }
+
+    
+}

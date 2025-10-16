@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3ec8829d9406606a570eb7bce9756ae249839fdb
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Python機器學習課程{% endblock %}</title>
     {# 使用 Flask 靜態資源 url_for 連結到 /static/css/styles.css #}
+<<<<<<< HEAD
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v=1">
+    <!-- 已移除內嵌 <style>，相關導覽列樣式已移至 static/css/index.css -->
+</head>
+=======
     <!-- 模板樣式 -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v=1">
     <!-- 客製樣式 -->
     {% block custom_css %}{% endblock %}
 </head>
 
+>>>>>>> 3ec8829d9406606a570eb7bce9756ae249839fdb
 <body>
     <!-- 導覽列 -->
     <nav class="navbar">
         <div class="container">
+<<<<<<< HEAD
+            <a class="navbar-brand" href="#">職能發展學院</a>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#" class="active">首頁1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">課程內容</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">關於我們</a>
+=======
             <a class="navbar-brand" href="{{ url_for('index') }}">職能發展學院</a>
             <ul class="nav-list">
                 <li class="nav-item">
@@ -33,6 +54,7 @@
                 <li class="nav-item">
                     <a href="{{ url_for('decision_tree') }}" {% if request.endpoint=='knn' %}class="active" {% endif
                         %}>決策樹分類</a>
+>>>>>>> 3ec8829d9406606a570eb7bce9756ae249839fdb
                 </li>
             </ul>
             <!-- 手機版導覽切換按鈕 -->
@@ -61,5 +83,8 @@
     <!-- 載入手機版導覽的行為腳本 -->
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3ec8829d9406606a570eb7bce9756ae249839fdb
 </html>

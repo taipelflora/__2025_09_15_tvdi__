@@ -27,6 +27,19 @@
     opacity: 0.85;
 }
 
+/* Algorithms Section */
+
+.algorithms-section{
+    margin-bottom: 3rem;
+}
+
+.algorithms-section > h2{
+    font-size: 2rem;
+    color: #0B346E;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
 @media (max-width:768px){
     /* Hero Section */
     .hero-section h1 {
@@ -37,5 +50,5 @@
         font-size: 1.1rem;
     }
 
-    
+
 }

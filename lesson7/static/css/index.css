@@ -70,6 +70,17 @@
     margin:0;
 }
 
+.algorithm-card .badge{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.algorithm-card .card-body{
+    padding: 2rem;
+}
+
 @media (max-width:768px){
     /* Hero Section */
     .hero-section h1 {

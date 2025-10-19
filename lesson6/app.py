@@ -11,6 +11,11 @@ def index():
 def machine():
     return render_template("machine.html") 
 =======
+<<<<<<< HEAD
+@app.route("/machine")
+def machine():
+    return render_template("machine.html") 
+=======
 @app.route("/regression")
 def regression():
     return render_template("regression.html")
@@ -40,6 +45,7 @@ def decision_tree():
     }
     return  render_template("decision_tree.html",tree_info=tree_info,is_supervised=True)
 >>>>>>> 3ec8829d9406606a570eb7bce9756ae249839fdb
+>>>>>>> 2d6d9caa04d49514e0d6805b3495eaccc9b46aa0
 
 def main():
     """啟動應用（教學用：啟用 debug 模式）"""

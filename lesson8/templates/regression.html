@@ -42,6 +42,47 @@
             <div class="result-formula" id="formula-display"></div>
         </div>
     </div>
+
+    <!-- 控制面板 -->
+    <div class="control-panel">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>載入中...</p>
+        </div>
+    </div>
+
+    <!-- 圖表區域 -->
+    <div class="chart-container">
+        <canvas id="regressionChart"></canvas>
+    </div>
+
+    <!-- 評估指標 -->
+    <div class="metrics-container">
+        <h3>模型評估指標</h3>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">R² 分數</div>
+                <div class="metric-value" id="r2-score">--</div>
+                <div class="metric-description">決定係數，越接近 1 表示模型越好</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">均方誤差 (MSE)</div>
+                <div class="metric-value" id="mse">--</div>
+                <div class="metric-description">預測值與實際值的平均誤差平方</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">均方根誤差 (RMSE)</div>
+                <div class="metric-value" id="rmse">--</div>
+                <div class="metric-description">MSE 的平方根，與目標值同單位</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">迴歸係數</div>
+                <div class="metric-value" id="coefficient">--</div>
+                <div class="metric-description">特徵的權重（斜率）</div>
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}
 

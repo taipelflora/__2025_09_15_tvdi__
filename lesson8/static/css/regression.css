@@ -51,6 +51,128 @@
     font-weight: 500;
 }
 
+/* 預測面版 */
+
+.prediction-panel {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-panel h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.prediction-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+}
+
+.input-group label {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.number-input {
+    width: 100px;
+    padding: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: bold;
+    background: white;
+    color: #0B346E;
+}
+
+.number-input:focus {
+    outline: none;
+    border-color: #ffc107;
+}
+
+.unit {
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.btn-predict {
+    padding: 0.8rem 2rem;
+    background: #ffc107;
+    color: #0B346E;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-predict:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-predict:active {
+    transform: translateY(0);
+}
+
+.prediction-result {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.result-label {
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.result-unit {
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.result-formula {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+
 
 
 

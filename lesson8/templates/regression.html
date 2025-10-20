@@ -21,6 +21,27 @@
         <p>本展示使用<strong>平均房間數</strong>來預測<strong>房價</strong>，讓你可以清楚看到線性迴歸如何找出特徵與目標值之間的線性關係。</p>
         <p class="highlight">💡 <strong>互動提示</strong>：在下方輸入房間數，或點選圖表上的資料點，即可看到預測房價！</p>
     </div>
+
+    <!-- 預測工具 -->
+    <div class="prediction-panel">
+        <h3>🏠 房價預測器</h3>
+        <div class="prediction-controls">
+            <div class="input-group">
+                <label for="rooms-input">輸入房間數：</label>
+                <input type="number" id="rooms-input" min="1" max="15" step="0.1" value="5.0" class="number-input">
+                <span class="unit">間</span>
+            </div>
+            <button id="predict-btn" class="btn-predict">預測房價</button>
+        </div>
+        <div id="prediction-result" class="prediction-result">
+            <div class="result-item">
+                <span class="result-label">預測房價：</span>
+                <span class="result-value" id="predicted-price">--</span>
+                <span class="result-unit">萬美元</span>
+            </div>
+            <div class="result-formula" id="formula-display"></div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
